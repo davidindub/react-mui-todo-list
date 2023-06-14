@@ -1,28 +1,26 @@
-import './App.css';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
+import "./App.css";
+import TodoList from "./TodoList";
+import NavBar from "./Navbar";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <NavBar />
+      <div className="App">
+        <header className="App-header">
+          <CssBaseline />
+          <TodoList />
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 
